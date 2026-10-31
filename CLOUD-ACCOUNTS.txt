@@ -1,0 +1,35 @@
+FORMA 3.0 — VEILIGE CLOUDACCOUNTS (OPTIONEEL)
+================================================
+
+De Forma 3.0-site is een statische website. Zonder back-end zijn er geen
+beveiligde online accounts. Voor echte gescheiden cloudaccounts:
+
+1. Maak een Supabase-project aan (supabase.com).
+2. Open de SQL Editor van het project.
+3. Voer supabase-schema.sql (meegeleverd) uit. Dit richt de tabel en de
+   verplichte Row Level Security (RLS)-regels in.
+4. Controleer onder Authentication > Providers dat Email is ingeschakeld.
+   Stel eventueel e-mailbevestiging in. Configureer de URL van de website
+   onder Authentication > URL Configuration als je e-mails met links gebruikt.
+5. Je vindt de Project URL en PUBLIEKE anon/publishable key onder Project
+   Settings > API Keys (namen kunnen per Supabase-versie verschillen).
+6. Open de app > Vrienden > Cloudproject instellen.
+7. Voer alleen de project-URL en de publieke sleutel in. Nooit een secret key.
+8. Beide vrienden registreren zich apart met hun eigen e-mailadres en wachtwoord.
+9. Kies 'Dit profiel uploaden' op het eerste toestel. Op een nieuw toestel log
+   je in en klik je 'Mijn cloudgegevens ophalen'.
+10. Dit zijn twee onafhankelijke accounts met afgeschermde eigen gegevens.
+
+LET OP:
+- De cloudlogin en het ophalen/uploaden van gegevens werken pas zodra je een
+  Supabase-project hebt ingericht. De maker van deze ZIP heeft geen project
+  aangemaakt of gehost.
+- Cloudsync is handmatig. Het is mogelijk om op twee toestellen een wijziging
+  te doen en een oudere versie over een nieuwere heen te uploaden. Maak
+  regelmatig back-ups.
+- De app bewaart de login-token voor de actieve tab/browsersessie in
+  sessionStorage. Opnieuw inloggen kan nodig zijn.
+- De vriendenkaart is handmatig delen, niet een live-vriendenfeed.
+- De onversleutelde profielinhoud in Supabase is alleen leesbaar via een met
+  RLS beveiligde query voor het eigenaaraccount; controleer zelf het
+  privacybeleid van je hostingprovider en Supabase.

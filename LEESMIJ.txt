@@ -1,0 +1,16 @@
+FORMA FITNESSCOACH – VISUAL DEELBAAR + ANATOMISCHE SPIERATLAS
+
+Wat is aangepast:
+- De opwarm- en halterschijvencalculator is verwijderd uit de coach.
+- De medische AI-spieratlas uit de eerdere Forma PRO-versie is terug, met rode en oranje markering voor de actieve spieren.
+- De Visual Edition met vijf AI-afbeeldingen en alle huidige trainingsfuncties is behouden.
+- Nieuwe knop **Deel Forma** bovenaan en in de Vrienden-/Coach-secties.
+- Nieuwe bezoekers kunnen een eigen naam kiezen of beginnen met een leeg schema.
+- Voor iedere oefening: animatie, doel en spieren, vijf duidelijke stappen, voor/achter spieratlas, fouten en progressietips.
+- Varianten zoals cable fly, single-arm row, dead bug, incline fly en chin-up hebben een eigen animatieverloop.
+- Elke bezoeker vult zijn eigen schema, gewichten, sets, RPE, calorieen en logboek in, onafhankelijk van anderen.
+- In **Teksten** blijven titels, introducties en oefeningsinstructies bewerkbaar.
+- Geen extra YouTube-films of MP4-clips.
+
+LEES EERST PUBLICEREN-GITHUB.md om een openbare link te maken.
+BELANGRIJK: lokaal opgeslagen data worden niet automatisch op andere apparaten gesynchroniseerd. Exporteer regelmatig een back-up.
