@@ -1,91 +1,78 @@
-# JO FIT 4.2 — Github upgradepakket (adaptieve AI-coach + videotestlab)
+# JO FIT 5.0 — START HIER
 
-Deze ZIP is een **uitbreiding van jouw bestaande JO FIT 4.0-app**: https://github.com/owenhulshofoh-create/JO-FIT. De bestaande app, schema's, animaties, intake en persoonlijke profielen blijven behouden. De indeling blijft logisch: **geen nieuwe hoofdtabs**.
+**JO FIT — jouw fitness app · Naar een idee van Owen en Jonathan**
 
-## Installatie vanuit GitHub
+Deze ZIP is een **compleet bijgewerkt project**, geen los script dat je in `</body>` hoeft te plakken. De mappen en bestanden staan al op de juiste plek. **JO FIT is NIET door ons naar jullie live GitHub-repository gepubliceerd.**
 
-1. Download het huidige `index.html` uit jouw GitHub-repository. Als de app al echte gegevens bevat, maak eerst een back-up. Heb je nog geen trainingsgegevens, dan kun je deze stap voor de data overslaan.
-2. Pak de ZIP uit. Upload de hele map **`upgrade/`** naar de hoofdmap van jouw JO-FIT-repository. Upload de bestanden uit **`assets/`** naar de bestaande map `assets/`. Laat alle andere oorspronkelijke bestanden staan.
-3. Upload de vernieuwde **`teksten.js`** en **`sw.js`** naar de hoofdmap (vervang de oude versies).
-4. Open **`tools/INSTALLER.html`** op je telefoon/computer. Kies de **oude `index.html`** die je uit GitHub hebt gedownload. De installer maakt een nieuwe `index.html` waarin één regel is toegevoegd. Upload die nieuwe `index.html` weer naar de hoofdmap van GitHub.
-5. Klik op **Commit changes**. Open jouw GitHub Pages-site, vernieuw één keer, en controleer ‘Mijn schema’ en ‘Logboek’.
+## Wat kun je direct gebruiken?
 
-**Belangrijk:** Upload niet alleen het ZIP-bestand in GitHub; pak het uit en behoud de mapstructuur. Je hoeft de broncode van de bestaande `index.html` niet te verwijderen. Op mobiel kan het uploaden van hele mappen lastig zijn; gebruik dan bij voorkeur de desktopwebsite of een computer.
+Na het uploaden werken zonder cloud: de vijf hoofdschermen, de nieuwe intake, materiaalgestuurde schemavoorstellen, je bestaande trainingsregistratie, Duo op één apparaat, voedingsdagboek met zelf ingevulde productwaarden, voortgang en back-ups. De optionele cloudaccount- en AI-functies zijn **niet automatisch actief**.
 
-### Handmatige installatie (één regel)
+## Veilig bijwerken — één publicatiemethode (GitHub Desktop, computer)
 
-Je kunt de installer overslaan. Voeg direct vóór `</body>` in je huidige `index.html` deze regel toe:
+Omdat de GitHub-webupload op een tablet bestanden en mappen niet altijd goed vervangt, raden we deze methode aan. Doe hem op een Windows-pc of Mac.
 
-```html
-<script defer src="./upgrade/boot.js"></script>
-```
+1. **Maak eerst twee back-ups.** Open je bestaande JO FIT-app en gebruik **Meer → Download back-up** voor elk persoonlijk profiel. Ga naar je [JO-FIT-repository](https://github.com/owenhulshofoh-create/JO-FIT), klik **Code → Download ZIP** en bewaar deze originele code apart.
+2. Installeer [GitHub Desktop](https://desktop.github.com/) en log in met je GitHub-account.
+3. Kies in GitHub Desktop **File → Clone repository**. Selecteer `owenhulshofoh-create/JO-FIT` en kloon die op je computer. Dit is dus de **bestaande** repository, geen nieuwe.
+4. Pak `JO-FIT-5.0-Fase1-GitHub.zip` uit in een afzonderlijke tijdelijke map.
+5. Open in GitHub Desktop via **Repository → Show in Explorer / Finder** de lokale `JO-FIT`-map.
+6. Kopieer **de inhoud** van de uitgepakte JO FIT 5.0-map naar deze lokale repositorymap. Kies **bestaande bestanden vervangen**. Let op: kopieer niet alleen de bovenste map; `index.html` moet direct in de repository-hoofdmap staan. Laat de verborgen `.git`-map van de gekloonde repository ongemoeid.
+7. Controleer in GitHub Desktop dat onder andere `index.html`, `intake.js`, `jofit-rules.js`, `jofit-shell.js`, `jofit-duo.js`, `jofit-nutrition.js` en `sw.js` als toegevoegd of gewijzigd zichtbaar zijn.
+8. Vul links onder bij **Summary** `JO FIT 5.0 – fase 1` in. Klik **Commit to main**, daarna **Push origin**.
+9. Je bestaande GitHub Pages-instelling **main / (root)** blijft gelijk. Bezoek na enkele minuten: https://owenhulshofoh-create.github.io/JO-FIT/ .
+10. Als je nog een oude versie ziet: sluit de PWA volledig, open de website opnieuw en herlaad. De nieuwe serviceworker gebruikt een andere cacheversie.
 
-De Python-variant vind je in `tools/patch-index.py`.
+**Niet verwijderen:** `.github` (bestaande workflows), `assets`, `icons`, `teksten.js`, `manifest.webmanifest`, de overige `.js`-bestanden. Upload nooit een `.env` of geheime sleutel in de openbare repository.
 
-## Verbeteringen logisch onder bestaande koppen
+## Eerste controle op de website
 
-| Bestaand menu | Toegevoegd | Broncode |
-|---|---|---|
-| **Mijn schema** | Set voor set registreren, herhalingen, gewicht, RIR, rusttimer | `upgrade/ui.js` |
-| **Logboek** | Gewichtsrecords, herhalingsrecords, geschat 1RM, exact dagvolume, 4/8/12-wekengrafieken | `upgrade/data.js`, `upgrade/ui.js` |
-| **Coach** | Persoonlijke doelen, herstelcheck, voorzichtige aanpassingsvoorstellen en een spiergroepoverzicht | `upgrade/data.js`, `upgrade/ui.js` |
-| **Vrienden** | JO FIT Duo: powersets A+B, automatisch wisselen, aparte sets en timers per persoon | `upgrade/ui.js` |
-| **Oefenbibliotheek** | Favorieten en alternatieven uit de bestaande oefeningendatabase | `upgrade/ui.js` |
-| **Vision** | Lokale, experimentele videohoek- en herhalingsschatting met meetkwaliteitscheck en testlab | `upgrade/vision-ai.js` |
-| **Back-up** | Volledige export/import met dubbele bevestiging en optionele cloud | `upgrade/backup-cloud.js` |
-| **Opmaak/teksten** | Nieuw uiterlijk, banners en teksten zonder de originele navigatie te vervangen | `teksten.js`, `upgrade/upgrade.css`, `assets/` |
+1. Open op je telefoon de website. Er moeten precies **vijf hoofdonderdelen** zijn: Vandaag, Trainen, Voeding, Voortgang en Meer.
+2. Een gebruiker zonder intake kan de vijf vragenstappen invullen. Controleer op stap 5 het voorstel. Pas na **Accepteer & bewaar nieuw schema** ontstaat een nieuwe schemaversie.
+3. Maak onder Meer een tweede lokaal profiel en test in Trainen → Duo een set met verschillende kilo's. De twee sets moeten in afzonderlijke logboeken terugkomen.
+4. Voer bij Voeding een eigen product per 100 gram in en voeg 50 gram toe. Controleer de berekening.
+5. Maak in Meer een back-up voordat je persoonlijke gegevens van de oude versie importeert of een ander apparaat gaat gebruiken.
 
-## Tekstwijzigingen die je hebt gevraagd
+## Wat moet je extra doen voor gratis online accounts?
 
-- Startscherm: **‘Jouw fitness app’** (waarbij ‘app’ de accentkleur krijgt).
-- Daaronder: **‘Naar een idee van Owen en Jonathan’**.
-- De oude slogan **‘Train doelgericht. Zie wat je bereikt.’** is vervangen.
-- Nieuwe compacte koppen en beschrijvingen passen bij de uitbreidingen.
-- De oude naam ‘Forma’ wordt waar mogelijk in zichtbare interface-teksten vervangen door ‘JO FIT’.
-- Persoonlijke teksten die je eerder via de teksteditor hebt opgeslagen **blijven bewust behouden** en gaan voor op de nieuwe publieke standaardteksten. Kies eventueel **Teksten → Herstel tekst** om de nieuwe standaard zichtbaar te maken.
+De website gebruikt standaard **alleen lokale opslag**. De accountmodule is voorbereid met Supabase Auth + serverafscherming, maar kan niet zelfstandig online gaan: er is een Supabase-project nodig dat jullie beheren.
 
-## Afbeeldingen en design
+1. Maak in [Supabase](https://supabase.com/dashboard) een project in een gewenste regio. Free is mogelijk zolang je binnen de voorwaarden en quota blijft.
+2. Open **SQL Editor** en voer `supabase/migrations/202611010001_jofit_accounts.sql` uit. Dit **laat de oudere `forma_user_data`-tabel ongemoeid** en maakt een nieuwe tabel met RLS en versiecontrole.
+3. Ga naar **Authentication → URL Configuration**: voeg de echte GitHub Pages-URL als Site URL en redirect-URL toe. Stel e-mailbevestiging en herstelmail in.
+4. Kopieer de **Project URL** en **Publishable / anon key** naar de openbare instellingen in `jofit-config.js`. De waarde `supabasePublishableKey` mag openbaar zijn; **de service-role key mag nooit in GitHub**. Publiceer de gewijzigde `jofit-config.js` via dezelfde GitHub Desktop-methode.
+5. Test eerst met twee **aparte testaccounts** en twee browsers. Maak een set in account A, log uit, log in op account B en controleer of account B de privégegevens van A niet kan ophalen. Test bovendien foutafhandeling en conflicten als twee apparaten tegelijkertijd schrijven. **Dit live deel is nog niet door ons getest.**
+6. Voor definitieve accountverwijdering deploy je `supabase/functions/delete-account` als Supabase Edge Function en configureer je de servergeheimen in Supabase (niet in GitHub). De app weigert de verwijderactie als deze serverfunctie ontbreekt.
 
-De grote hero bevat een originele, voor JO FIT gemaakte gymillustratie (`assets/jofit-hero.webp`). Daarnaast zijn nieuwe SVG-illustraties toegevoegd aan **Logboek, Coach, Vrienden en Vision**. De kleuren sluiten aan op het bestaande donkere thema met warme roze/rode accenten. De originele 44 oefeningen, oefenfoto's en 3D-animaties worden niet vervangen.
+**Automatische cloudsync is nog een configuratie- en proefwerkonderdeel.** Een bestaande lokale browser is geen geschikt veilig meergebruikersapparaat: uitgelogde accountgegevens kunnen technisch nog in de browseropslag aanwezig zijn. Zet vóór openbare introductie een bewaarbeleid en beveiligingsonderzoek op (zie `PRIVACY-EN-OPSLAG.md`).
 
-## Wat direct werkt en wat een eigen configuratie nodig heeft
+## Optionele echte AI-chat (betaalde API)
 
-**Direct na installatie:** persoonlijke, adaptieve Coach met doelen en herstelcheck; videogewrichtsmetingen met kwaliteitscontrole; setregistratie, records, grafieken, spiergroepanalyse, Smart Coach-adviezen, Duo, favorieten, volledige back-ups, tekst- en designaanpassingen.
+- Deploy `supabase/functions/coach-chat` met ingeschakelde JWT-verificatie.
+- Configureer de servergeheimen `OPENAI_API_KEY` en `OPENAI_MODEL` via **Supabase Secrets**. Zet geen enkele geheime sleutel in `jofit-config.js`.
+- Stel voor elke functie `ALLOWED_ORIGIN=https://owenhulshofoh-create.github.io` in. Kies een model na toetsing van actuele beschikbaarheid en prijs.
+- Zet pas ná geslaagde server- en accounttests `aiEnabled: true` in `jofit-config.js`.
+- SQL bevat een maximum van tien AI-verzoeken per ingelogde gebruiker per dag. Aanvragen verbruiken betaalde modeltokens.
 
-**Cloud:** is optioneel. Je hebt een eigen Supabase-project en de instellingen in `upgrade/config.js` nodig. De app gebruikt de bestaande beveiligde tabel `forma_user_data`. Cloud synchroniseert bewust **handmatig** om conflicten niet onopgemerkt te overschrijven. Zie `CLOUD-INSTALLEREN.md`.
+De **regelgebaseerde** trainingscoach werkt zonder deze dienst. Alle wijzigingen aan schema's vereisen bevestiging.
 
-**Vision AI:** vereist een klik van de gebruiker, een gekozen video en internet om de externe poseherkenningssoftware te laden. De videobeelden blijven op jouw apparaat. De schattingen zijn experimenteel: **geen gevalideerde techniek- of veiligheidsbeoordeling** en niet voor alle oefeningen beschikbaar.
+## Optioneel Open Food Facts-productzoeken
 
-**Oefeningendatabase:** krijgt favorieten en alternatieven, maar niet zomaar 100+ nieuwe automatisch ingetekende animaties. Voor extra kwalitatief goede oefeningen moeten techniek, afbeeldingen en varianten eerst afzonderlijk worden gecontroleerd.
+- Deploy `supabase/functions/food-search` met JWT-verificatie en SQL-quota.
+- Stel via Supabase Secrets de omgeving `OFF_USER_AGENT=JO-FIT/5.0 (contact@jouwdomein.nl)` in, maar gebruik een **werkelijk bereikbaar beheer-e-mailadres** en meld de app bij Open Food Facts aan. Gebruik niet letterlijk de voorbeeldwaarde.
+- De zoekfunctie gebruikt tijdelijk de **legacy v1-fulltext-API**, omdat v2/v3 geen gewone volledige-tekstzoekopdrachten bieden. De snelheid is serverbreed beperkt tot 8 verzoeken per minuut en 40 per gebruiker per dag. De API is niet live gevalideerd.
+- Zet pas na testen `foodSearchEnabled: true` in `jofit-config.js`.
 
-## Technisch en privacy
+## Voor wijzigingen later
 
-- Oude profieldata: `forma_v2_profiles` blijft het bestaande opslagformaat.
-- Nieuwe exacte setdata worden per persoon bewaard onder `jofit_upgrade_v1_<profiel-id>`.
-- Nieuwe statistieken proberen dubbeltellingen met het oorspronkelijke samengevatte logboek te voorkomen.
-- Volledige back-ups nemen de eigen profielen, intake, teksten en Vision-notities mee; niet videobestanden of cloudwachtwoorden.
-- Alle normale gegevens blijven in de browser totdat je zelf de cloud activeert.
-- De app heeft geen npm-build nodig. Een interne syntaxcheck voor de JavaScriptbestanden is uitgevoerd. Cloud en echte Vision-videometingen moet je met je eigen instellingen testen.
+Maak wijzigingen in de bestaande GitHub Desktop-kloon, klik **Commit to main → Push origin**. De GitHub Pages-link verandert niet. De **✎ Teksten**-knop bewaart persoonlijke voorkeuren op dat apparaat; algemene standaardteksten staan in `teksten.js` en worden via de repository bijgewerkt. Persoonlijke tekstaanpassingen hebben voorrang op de gepubliceerde standaardtekst.
 
-## Problemen oplossen
+## Meer informatie
 
-**Nieuwe functies ontbreken:** controleer of `index.html` de scriptregel bevat en `upgrade/boot.js` op exact die locatie staat. Vernieuw je site; de nieuwe `sw.js` gebruikt een nieuwe cacheversie.
+- `WIJZIGINGEN.md` – wat is toegevoegd/veranderd
+- `STATUS-EN-VERVOLG.md` – wat werkt, wat nog configuratie of validatie nodig heeft
+- `TESTRESULTATEN.md` – wat echt is getest en wat niet
+- `PRIVACY-EN-OPSLAG.md` – locatie, toegang en aandachtspunten van gegevens
+- `BRONNEN-EN-LICENTIES.md` – voeding, media en auteursrechten
 
-**Oude slogan nog zichtbaar:** je hebt waarschijnlijk eigen eerder opgeslagen browsertekst. Gebruik `Teksten → Herstel tekst` om de nieuwe standaard te zien.
-
-**Cloudmelding:** cloud is niet verplicht. De rest blijft lokaal bruikbaar.
-
-**Geen Vision-analyse:** alleen geselecteerde oefeningen en video's worden voorlopig ondersteund; probeer opnieuw met internet. De bestaande handmatige techniekcheck blijft beschikbaar.
-
-
-## Nieuw in 4.2: Coach en Vision-testlab
-
-- Onder de **bestaande kop Coach** staat nu **JO FIT Adaptieve Coach**: doelstellingen, tijd, trainingsdagen, materiaal, niet-gewenste oefeningen, dagelijkse herstelcheck en bijsturing bij aantoonbare vooruitgang. Werkt lokaal vanaf de eerste training. Alle wijzigingen vereisen jouw bevestiging.
-- Onder **Vision** staat een link naar `tools/VIDEO-TESTLAB.html`: kies een echte korte video van squat/lunge/curl en tel zelf de herhalingen. Er worden alleen statistieken van het resultaat opgeslagen; geen videobestanden of ruwe frames. Bij lage betrouwbaarheid wordt geen rep-getal getoond.
-- **Optionele echte AI-chat:** zie `AI-COACH-INSTALLEREN.md`. Hiervoor zijn een Supabase-project, een ingelogde gebruiker en een OpenAI API-sleutel als **serversecret** nodig. Zonder dit is de adaptieve coach beschikbaar, maar niet de generatieve chat.
-- In `tests/` staan automatische unit tests voor de coach en de rep-estimator. Dit vervangt geen praktijktesten met echte video's.
-- Als je een oudere 4.1 ZIP al hebt geupload, vervang `upgrade/`, `sw.js` en `assets/`; zet de nieuw toegevoegde `tools/VIDEO-TESTLAB.html` erbij. De bestaande bootregel in `index.html` blijft hetzelfde.
-
-## Praktische controle
-
-De unit tests en de browser-simulatie (zonder echte video) zijn geslaagd. Echte videoherkenning en de AI-cloudkoppeling vereisen een eigen praktijktest. Zie `VIDEO-TESTPLAN.md` en `AI-COACH-INSTALLEREN.md`. De nieuwe coach past niets zelfstandig toe zonder bevestiging.
+**Het nieuwe pakket is een geteste eerste ontwikkelfase, niet de afgeronde publieke productieapp.**

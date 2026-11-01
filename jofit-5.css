@@ -1,0 +1,76 @@
+/* JO FIT 5 - visual system (inherits original charcoal / coral palette) */
+:root{--jo-brand:#ff647d;--jo-border:#433442;--jo-background:#111319;--jo-surface:#211c25;--jo-muted:#b9b7c0}
+body{background:var(--jo-background);color:#f8f5f8}
+.forma-feature-nav{display:none!important}
+body:not(.jo-home) .hero{display:none!important}
+body.jo-home .hero{margin-bottom:22px}
+.jo-kicker{font-size:11px;color:#ff9db0;letter-spacing:.09em;font-weight:900;text-transform:uppercase}
+.jo-status{display:inline-flex;align-items:center;background:#332b35;border:1px solid #554756;padding:9px 12px;border-radius:30px;font-size:12px;white-space:nowrap;color:#edc5cd}
+.jo-status.connected{background:#17332e;border-color:#386a57;color:#a8e2c9}
+.jo-dashboard-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:25px 0 20px}
+.jo-dashboard-head h2{font-size:clamp(26px,4vw,38px);margin:7px 0 4px;color:#fff}
+.jo-dashboard-head p{font-size:14px;color:#c4bfc8;margin:0}
+.jo-macro-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0 23px}
+.jo-macro-grid>div{border:1px solid #423541;border-radius:17px;padding:15px;background:linear-gradient(145deg,#26202a,#1b1e27)}
+.jo-macro-grid>div span{font-size:12px;color:#c9c3ce;display:block}.jo-macro-grid strong{font-size:26px;margin:8px 0 4px;display:block;color:white;line-height:1.12}.jo-macro-grid small{font-size:11px;color:#acacb9;display:block}
+.jo-home-list{display:grid;gap:8px;margin:18px 0}.jo-home-list>div{display:flex;gap:12px;align-items:center;padding:10px;border-radius:12px;background:#181720;border:1px solid #393039}.jo-home-list>div>span{color:#ff9baa;font-weight:900}.jo-home-list b{font-size:13px;flex:1}.jo-home-list small{font-size:12px;color:#c6bdc7}
+.jo-home-shortcuts,.jo-settings-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:18px 0 30px}
+.jo-home-shortcuts button,.jo-settings-card{cursor:pointer;text-align:left;display:grid;gap:7px;border:1px solid #423641;border-radius:16px;padding:17px;background:#211c25;color:white;font:inherit}.jo-home-shortcuts button>span{color:#ff879b;font-size:25px}.jo-home-shortcuts b,.jo-settings-card strong{font-size:15px}.jo-home-shortcuts small,.jo-settings-card span{color:#bbb3c2;font-size:12px}
+.jo-settings-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.jo-settings-card:hover,.jo-home-shortcuts button:hover{border-color:#fe7188}
+.jo-panel{box-shadow:0 12px 32px #00000018}
+.jo-panel h3{font-size:19px;letter-spacing:-.01em}.jo-panel h4{margin:16px 0 10px}
+.jo-coach-advice{padding:12px 14px;border-left:3px solid #fa6b84;background:#30202b;border-radius:12px;margin:11px 0}.jo-coach-advice b{display:block;color:#fff}.jo-coach-advice span{font-size:12px;color:#ffb6c3}.jo-coach-advice p{font-size:12px!important;color:#d0c3cf;line-height:1.6;margin:4px 0!important}
+.jo-button-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.jo-button-row button{flex:1 1 130px;min-height:42px}
+.jo-subnav{display:flex;gap:7px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;margin:16px 0 10px;padding:3px 0 9px;scroll-snap-type:x proximity}
+.jo-subnav[hidden]{display:none}.jo-subbtn{white-space:nowrap;scroll-snap-align:start;cursor:pointer;border:1px solid #4a3d4b;background:#201a24;color:#c4bcc7;border-radius:30px;padding:10px 14px;font:700 12px inherit;min-height:40px}.jo-subbtn.active{border-color:#fa7188;background:#6a283c;color:#fff}
+.jo-wizard-head{display:flex;justify-content:space-between;align-items:center;gap:15px;margin:10px 0}.jo-wizard-head>span{font-size:11px;color:#bcb6c2}.jo-wizard-steps{display:flex;gap:5px;width:170px}.jo-wizard-steps span{height:6px;flex:1;border-radius:10px;background:#453a4b}.jo-wizard-steps span.on,.jo-wizard-steps span.done{background:#fb6c86}
+.jo-wizard{background:#211c26;border:1px solid #453646;border-radius:19px;padding:22px;margin-bottom:32px}.jo-wizard h3{margin:0 0 19px;font-size:22px}.jo-wizard form{max-width:840px}.jo-wizard-controls{display:flex;gap:12px;margin-top:24px;justify-content:flex-end}.jo-wizard-controls button{min-width:130px}.jo-picks{border:0;padding:0;margin:2px 0 11px}.jo-picks legend{font-size:14px;font-weight:800;margin:8px 0 13px;color:#fff}.jo-chipgrid{display:flex;flex-wrap:wrap;gap:8px}.jo-checkchip{display:inline-flex!important;position:relative;cursor:pointer}.jo-checkchip input{width:19px!important;height:19px;margin:0 5px 0 0;accent-color:#ff6e88}.jo-checkchip span{border:1px solid #4a3b4b;border-radius:11px;background:#1b1721;padding:8px 11px;color:#ddd3de;font-size:12px}
+.jo-checkchip:has(input:checked) span{background:#5c2c40;border-color:#fc7390;color:white}
+.jo-day-preview{display:grid;gap:5px;padding:12px;background:#171720;border:1px solid #433644;border-radius:12px;margin:9px 0}.jo-day-preview span{font-size:13px;line-height:1.5}.jo-day-preview small{color:#b5aeb9}.jo-review p{line-height:1.65}
+.jo-duo-layout{display:grid;grid-template-columns:1fr .8fr;gap:18px;margin-bottom:30px}.jo-turn{padding:16px;background:#5b2639;border:1px solid #a94c68;border-radius:14px;margin:16px 0}.jo-turn small{font-size:12px;display:block;color:#ffc1d0}.jo-turn strong{font-size:26px}.jo-duo-ex{padding:12px 4px;border-bottom:1px solid #493d4b;display:grid;gap:5px}.jo-duo-ex span{font-size:12px;color:#cfbfca}.jo-consent{display:flex!important;flex-direction:row;gap:8px!important;align-items:flex-start}.jo-consent input{width:20px;accent-color:#ff6885}.jo-progressline{height:7px;background:#403442;border-radius:10px;margin:10px 0 23px;overflow:hidden}.jo-progressline span{display:block;height:100%;background:#fd7087}
+.jo-food-results{display:grid;gap:7px;margin:14px 0}.jo-food-results>button{background:#29222f;color:#f6e9f3;border:1px solid #544353;border-radius:9px;padding:10px;text-align:left;cursor:pointer}.jo-food-result{display:flex;justify-content:space-between;align-items:center;gap:12px;background:#181720;border:1px solid #423743;border-radius:11px;padding:12px}.jo-food-result>div{min-width:0}.jo-food-result b{font-size:13px;display:block}.jo-food-result small{font-size:11px;color:#bbb1bc;display:block}.jo-food-result strong{white-space:nowrap}.jo-food-result button{font-size:12px}
+.jo-details{border-top:1px solid #433644;margin:16px 0;padding-top:12px}.jo-details summary{font-weight:800;cursor:pointer;color:#ffc3d1;margin-bottom:10px}.jo-details[open] summary{margin-bottom:16px}
+.jo-recent-sessions{display:grid;gap:6px;margin:10px 0}.jo-recent-sessions>div{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid #423541}.jo-recent-sessions span{font-size:12px;line-height:1.4}
+.jo-progress-more{margin:25px 0}.jo-period{display:flex;gap:12px;align-items:center}.jo-period select{background:#15141c;color:#fff;border:1px solid #554758;padding:9px;border-radius:10px}
+/* Unvalidated new exercises must not present the legacy generic pose as a correct animation. */
+.jo-missing-demo{background:#1b1e28;color:#ded5df;border:1px dashed #655763;padding:15px;border-radius:13px;font-size:13px;line-height:1.55}
+.navrow{position:relative;z-index:30}.tabs{gap:7px}.tab{white-space:nowrap;min-height:47px}
+#view{min-height:260px}
+:focus-visible{outline:3px solid #ff9caf!important;outline-offset:3px}
+@media(max-width:1000px){.jo-macro-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jo-home-shortcuts,.jo-settings-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){
+ .page{padding-bottom:88px!important}.shell{padding-bottom:5px!important}
+ .header{gap:7px!important}.header-actions{gap:5px!important}.header-actions>.top-btn{display:none!important}.header-actions .profile-select-wrap{max-width:150px}.brandname{font-size:20px!important}.brandtag{font-size:8px!important}
+ .navrow{position:fixed!important;bottom:0!important;left:0!important;right:0!important;z-index:700!important;background:#17141df5!important;border-top:1px solid #604357!important;box-shadow:0 -10px 30px #0008!important;margin:0!important;padding:7px 8px calc(8px + env(safe-area-inset-bottom))!important;width:100%!important;max-width:none!important;backdrop-filter:blur(12px)}
+ .navrow .tabs{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;gap:2px!important;padding:0!important;width:100%!important;overflow:visible!important;background:transparent!important;border:0!important}
+ .navrow .tab{min-width:0!important;width:100%!important;font-size:10px!important;min-height:47px!important;line-height:1.15!important;border:0!important;padding:9px 2px!important;white-space:normal!important;background:transparent!important;border-radius:12px!important;color:#c1aebf!important}
+ .navrow .tab.active{background:#4e2639!important;color:#fff!important}
+ .jo-subnav{margin-top:8px}.jo-dashboard-head{align-items:flex-start;flex-direction:column}.jo-status{font-size:11px}
+ .jo-macro-grid{gap:8px;margin:13px 0 20px}.jo-macro-grid>div{padding:12px}.jo-macro-grid strong{font-size:20px}
+ .jo-home-shortcuts,.jo-settings-grid{grid-template-columns:1fr;gap:8px}.jo-home-shortcuts button,.jo-settings-card{padding:14px}
+ .jo-wizard{padding:16px}.jo-wizard-controls{justify-content:stretch}.jo-wizard-controls button{flex:1;min-width:0}
+ .jo-duo-layout{grid-template-columns:1fr}.jo-home-list>div{flex-wrap:wrap}.jo-panel{padding:16px!important}.jo-food-result{flex-wrap:wrap}
+ body.jo-home .hero{margin-bottom:0;padding:15px!important;gap:10px}.hero h1{font-size:clamp(24px,7.5vw,44px)!important}.hero .forma-hero-art{max-height:220px!important}
+ #f3timer{bottom:75px!important}
+}
+@media(max-width:370px){.navrow .tab{font-size:9px!important}.jo-macro-grid strong{font-size:17px}}
+
+.jo-thumb-placeholder{width:100%;height:100%;display:grid;place-items:center;text-align:center;padding:16px;background:linear-gradient(135deg,#34202d,#1c212b);color:#ffb0c2;font-size:13px;font-weight:750}
+.jo-no-animation .demo-stage svg,.jo-no-animation .demo-bottom,.jo-no-animation .scrub-label,.jo-no-animation .motion-legend,.jo-no-animation .demo-note,.jo-no-animation .profile-strip{display:none!important}
+.jo-no-animation .demo-stage{min-height:190px!important;display:flex;align-items:center;justify-content:center;background:#201d28!important;padding:22px!important}
+.jo-no-animation .demo-stage>*{display:none!important}.jo-no-animation .demo-stage:after{content:'Voor deze oefening is nog geen gevalideerde animatie beschikbaar. Bekijk het stappenplan en de anatomische spieratlas.';display:block;max-width:350px;color:#ffb0c2;font-size:15px;text-align:center;line-height:1.6}
+body:not([data-jo-main="train"]) #f3timer{display:none!important}
+@media(max-width:760px){
+.header{display:flex!important;align-items:center!important;justify-content:space-between!important;flex-wrap:nowrap!important;min-height:74px!important}
+.header-actions{width:auto!important;max-width:55%!important;flex:0 1 auto!important;justify-content:flex-end!important}
+.header-actions .top-btn:not(.primary),.header-actions .top-btn.primary{display:none!important}
+.header-actions .profile-select-wrap{width:100%!important;min-width:115px!important}
+.header-actions .profile-select-wrap select{max-width:150px!important;width:100%!important}
+}
+
+/* Old manual cloud panel retired: account management moved to Meer > Mijn account. */
+body[data-jo-main="more"] #view .f3-card:has(#cloudStatus){display:none!important}
+
+.jo-searchfood{display:flex;justify-content:space-between;gap:5px;background:#29222f;border:1px solid #544353;border-radius:10px;overflow:hidden}.jo-searchfood button{color:#ffeaf0;border:0;background:transparent;padding:10px 13px;cursor:pointer}.jo-searchfood button:first-child{flex:1;text-align:left}.jo-searchfood button:last-child{font-size:22px;color:#ff93a9}.jo-food-recents{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.jo-food-recents button{border:1px solid #554153;background:#302535;color:#fff;border-radius:9px;padding:7px 10px;font-size:12px;cursor:pointer}
+
+body:not([data-jo-tab="schema"]) #f3timer{display:none!important}

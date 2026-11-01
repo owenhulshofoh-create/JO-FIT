@@ -1,7 +1,7 @@
 {
   "name": "JO FIT - Persoonlijke Fitnesscoach",
   "short_name": "JO FIT",
-  "description": "Persoonlijke training, voeding, wandelstappen, krachtcoach, herstel en eigen accounts.",
+  "description": "Training, voeding, voortgang, lokale Duo-training en een uitbreidbaar persoonlijk account.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
