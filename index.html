@@ -1005,4 +1005,9 @@ setupTimer();
 function formaWelcomeOnce(){if(!formaIsFirstVisit||sessionStorage.getItem('forma_welcome_dismissed'))return;const root=document.createElement('div');root.className='forma-share-backdrop';root.innerHTML=`<section class="forma-share-dialog forma-welcome" role="dialog" aria-modal="true" aria-label="Welkom bij Forma"><button class="forma-share-close" aria-label="Sluiten">×</button><div class="forma-share-emblem">💪</div><h2>Welkom bij Forma!</h2><p>Dit is jouw persoonlijke fitnesscoach. Je trainingen en metingen blijven op <strong>dit apparaat</strong> en worden niet met andere bezoekers gedeeld.</p><label class="forma-welcome-field">Hoe mogen we je profiel noemen?<input id="formaWelcomeName" maxlength="38" placeholder="Bijvoorbeeld: Mijn training" autocomplete="nickname"></label><label class="forma-welcome-check"><input type="checkbox" id="formaWelcomeBlank"> Ik begin liever met een leeg schema</label><button class="savebutton" id="formaWelcomeStart">Start mijn eigen Forma</button><p class="forma-share-sub">Je kunt altijd via + Profiel een tweede profiel aanmaken en via Back-up je gegevens downloaden.</p></section>`;document.body.appendChild(root);const close=()=>{sessionStorage.setItem('forma_welcome_dismissed','1');root.remove();};root.querySelector('.forma-share-close').onclick=close;root.onclick=e=>{if(e.target===root)close();};root.querySelector('#formaWelcomeStart').onclick=()=>{const name=root.querySelector('#formaWelcomeName').value.trim().slice(0,38);if(name)allProfiles.profiles[activeProfile].name=name;if(root.querySelector('#formaWelcomeBlank').checked){const empty=Object.fromEntries(keys.map(day=>[day,[]]));routines[activeRoutine].schedule=empty;schedule=empty;}persist();updateProfileUI();renderView();close();toast('Je eigen Forma-profiel is klaar!');};}
 
 formaWelcomeOnce();
-</script><script src="./intake.js"></script><script src="./vision.js"></script></body></html>
+  </script>
+<script src="./intake.js"></script>
+<script src="./vision.js"></script>
+<script defer src="./upgrade/boot.js"></script>
+</body>
+</html>
