@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JO FIT · Vision Testlab</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,sans-serif;background:#0e1119;color:#f8f5f7}body{max-width:950px;margin:auto;padding:22px 14px 65px}h1{font-size:clamp(27px,6vw,42px);margin:6px 0}p{color:#bdc1cd;line-height:1.55}.surface{background:linear-gradient(130deg,#222533,#171a24);border:1px solid #524454;padding:22px;border-radius:22px;margin:20px 0}.pill{color:#ff9bad;font-size:12px;letter-spacing:.12em;font-weight:800}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}label{font-size:14px;font-weight:700;display:grid;gap:8px}input,select{font-size:15px;background:#141825;color:#fff;padding:12px;border:1px solid #655363;border-radius:9px;width:100%;box-sizing:border-box}button{cursor:pointer;padding:13px 17px;border:1px solid #ce8597;border-radius:11px;color:#1c0b14;background:#fb8b9f;font-weight:800}button:disabled{opacity:.5}button.secondary{background:#242939;color:white}video{width:100%;max-height:430px;background:#08090c;border-radius:13px;margin:20px 0}.result{font-weight:700;white-space:pre-wrap;color:#ebdce1;padding:15px;background:#242a38;border-radius:13px}.hint{font-size:12px}@media(max-width:650px){.fields{grid-template-columns:1fr}}
+</style></head><body>
+<div class="pill">JO FIT · VISION TESTLAB</div><h1>Controleer onze videoanalyse</h1>
+<p>Vergelijk een door jou geteld aantal herhalingen met de schatting van JO FIT. Videobeelden worden niet verstuurd; het analysemodel wordt pas na je klik geladen.</p>
+<div class="surface">
+<div class="fields"><label>Oefening<select id="exercise"><option value="Squat">Squat (zijaanzicht)</option><option value="Lunge">Lunge (zijaanzicht)</option><option value="Biceps curl">Biceps curl (zijaanzicht)</option></select></label>
+<label>Zelf getelde herhalingen<input id="manual" type="number" min="0" max="100" step="1" placeholder="Bijv. 8"></label>
+<label>Video op dit apparaat<input type="file" id="file" accept="video/*"></label>
+</div>
+<video id="video" controls playsinline muted preload="metadata"></video>
+<div style="display:flex;gap:10px;flex-wrap:wrap"><button id="run" disabled>Analyseer video</button><button id="stop" class="secondary" disabled>Stop analyse</button><button id="export" class="secondary" disabled>Download testresultaat</button></div>
+<div id="result" class="result" role="status" style="margin-top:18px">Kies een video. De app heeft pas na het laden toegang tot de beelden.</div>
+<p class="hint">Test minimaal 5 video's per oefening en voeg bewust slechte camera-omstandigheden toe. Een succesvolle synthetische test is geen bewijs dat een echte videometing goed werkt. Laat een ervaren trainer techniek beoordelen; deze app beoordeelt geen blessurerisico.</p>
+</div>
+<script src="../upgrade/motion-core.js"></script><script src="../upgrade/vision-ai.js"></script>
+<script>
+(function(){'use strict';
+const file=document.getElementById('file'), video=document.getElementById('video'), run=document.getElementById('run'), stop=document.getElementById('stop'), exp=document.getElementById('export'), out=document.getElementById('result');
+let url=null, token={requested:false}, report=null;
+file.onchange=()=>{if(url)URL.revokeObjectURL(url);url=null;run.disabled=true;exp.disabled=true;report=null;const f=file.files?.[0];if(!f)return;if(f.size>500*1024*1024){out.textContent='Video is groter dan 500 MB. Kies een korter fragment.';return}url=URL.createObjectURL(f);video.src=url;video.load();out.textContent='Video wordt lokaal geladen...';};
+video.onloadedmetadata=()=>{run.disabled=!(video.duration>=3);out.textContent=run.disabled?'Film minstens 3 seconden.':`Video geladen (${video.duration.toFixed(1)} s). Klaar om te testen.`};
+stop.onclick=()=>{token.requested=true;};
+run.onclick=async()=>{token={requested:false};run.disabled=true;stop.disabled=false;report=null;exp.disabled=true;
+  try{out.textContent='Model laden...';const name=document.getElementById('exercise').value;
+  report=await window.JOFIT_VISION.analyze({video,exerciseName:name,cancellation:token,onProgress:p=>{out.textContent=`Meten: ${p}%`;}});
+  const raw=document.getElementById('manual').value, comparison=raw===''?null:window.JOFIT_MOTION.compare(report,Number(raw));
+  report.comparison=comparison;out.textContent=[`Status: ${report.status==='ok'?'voorzichtig bruikbaar':'onvoldoende betrouwbaar'}`,`Herhalingen JO FIT: ${report.reps??'niet vastgesteld'}`,`Handmatig: ${comparison?.manualReps??'niet ingevuld'}`,`Verschil: ${comparison?.difference??'onbekend'}`,`Zichtbare gewrichten: ${Math.round(report.coverage*100)}% van frames`,`Gewrichtshoekbereik: ${report.range??'onbekend'} graden`,report.reason].join('\n');
+  exp.disabled=false;
+  }catch(e){out.textContent='Analyse gestopt/mislukt: '+e.message;}finally{run.disabled=false;stop.disabled=true;}
+};
+exp.onclick=()=>{if(!report)return;const r={app:'JO FIT Vision Testlab',exercise:report.exercise,measuredAt:report.measuredAt,status:report.status,reps:report.reps,coverage:report.coverage,range:report.range,validFrames:report.validFrames,totalFrames:report.totalFrames,comparison:report.comparison};
+const blob=new Blob([JSON.stringify(r,null,2)],{type:'application/json'}),link=URL.createObjectURL(blob),a=document.createElement('a');a.href=link;a.download='JO-FIT-Vision-test.json';a.click();setTimeout(()=>URL.revokeObjectURL(link),1500);};
+})();
+</script></body></html>
