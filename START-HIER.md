@@ -1,78 +1,56 @@
-# JO FIT 5.0 — START HIER
+# JO FIT 5.2 - START HIER
 
-**JO FIT — jouw fitness app · Naar een idee van Owen en Jonathan**
+**JO FIT - Jouw fitness app. Naar een idee van Owen en Jonathan.**
 
-Deze ZIP is een **compleet bijgewerkt project**, geen los script dat je in `</body>` hoeft te plakken. De mappen en bestanden staan al op de juiste plek. **JO FIT is NIET door ons naar jullie live GitHub-repository gepubliceerd.**
+Dit is een **compleet project**, dus niet een los script dat je zelf aan een HTML-bestand moet koppelen. De wijzigingen staan al in `index.html` en de meegeleverde bestanden. De live website is **niet** door ChatGPT gewijzigd.
 
-## Wat kun je direct gebruiken?
+## Eerst: back-up van je persoonlijke gegevens
 
-Na het uploaden werken zonder cloud: de vijf hoofdschermen, de nieuwe intake, materiaalgestuurde schemavoorstellen, je bestaande trainingsregistratie, Duo op één apparaat, voedingsdagboek met zelf ingevulde productwaarden, voortgang en back-ups. De optionele cloudaccount- en AI-functies zijn **niet automatisch actief**.
+De website bewaart je persoonlijke schema, trainingsgeschiedenis en eigen instellingen in je browser. **Een GitHub-repository bevat jouw lokaal ingevoerde trainingsgegevens niet.** Open daarom op je gebruikelijke apparaat de bestaande JO FIT-website, kies **Meer > Back-up downloaden** en bewaar de export op een veilige plek. Doe dit voor ieder profiel afzonderlijk. Bewaar ook een kopie van je huidige GitHub-repository via **Code > Download ZIP**.
 
-## Veilig bijwerken — één publicatiemethode (GitHub Desktop, computer)
+Bij een normale update op hetzelfde websiteadres blijven de bestaande gegevens in principe bestaan. Nieuwe apparaten, wissen van browserdata, incognitomodus, verkeerd ingestelde cloudsync of een gewijzigd domein kunnen dat veranderen. Test daarom voorzichtig; verwijder de oude app of browserdata niet.
 
-Omdat de GitHub-webupload op een tablet bestanden en mappen niet altijd goed vervangt, raden we deze methode aan. Doe hem op een Windows-pc of Mac.
+## Publiceren: gebruik GitHub Desktop op Windows of Mac
 
-1. **Maak eerst twee back-ups.** Open je bestaande JO FIT-app en gebruik **Meer → Download back-up** voor elk persoonlijk profiel. Ga naar je [JO-FIT-repository](https://github.com/owenhulshofoh-create/JO-FIT), klik **Code → Download ZIP** en bewaar deze originele code apart.
-2. Installeer [GitHub Desktop](https://desktop.github.com/) en log in met je GitHub-account.
-3. Kies in GitHub Desktop **File → Clone repository**. Selecteer `owenhulshofoh-create/JO-FIT` en kloon die op je computer. Dit is dus de **bestaande** repository, geen nieuwe.
-4. Pak `JO-FIT-5.0-Fase1-GitHub.zip` uit in een afzonderlijke tijdelijke map.
-5. Open in GitHub Desktop via **Repository → Show in Explorer / Finder** de lokale `JO-FIT`-map.
-6. Kopieer **de inhoud** van de uitgepakte JO FIT 5.0-map naar deze lokale repositorymap. Kies **bestaande bestanden vervangen**. Let op: kopieer niet alleen de bovenste map; `index.html` moet direct in de repository-hoofdmap staan. Laat de verborgen `.git`-map van de gekloonde repository ongemoeid.
-7. Controleer in GitHub Desktop dat onder andere `index.html`, `intake.js`, `jofit-rules.js`, `jofit-shell.js`, `jofit-duo.js`, `jofit-nutrition.js` en `sw.js` als toegevoegd of gewijzigd zichtbaar zijn.
-8. Vul links onder bij **Summary** `JO FIT 5.0 – fase 1` in. Klik **Commit to main**, daarna **Push origin**.
-9. Je bestaande GitHub Pages-instelling **main / (root)** blijft gelijk. Bezoek na enkele minuten: https://owenhulshofoh-create.github.io/JO-FIT/ .
-10. Als je nog een oude versie ziet: sluit de PWA volledig, open de website opnieuw en herlaad. De nieuwe serviceworker gebruikt een andere cacheversie.
+1. Open https://desktop.github.com/ en log in op je GitHub-account.
+2. Kies **File > Clone repository** en selecteer je bestaande repository `owenhulshofoh-create/JO-FIT`. Maak **geen** nieuwe repository aan.
+3. Pak het ZIP-bestand **JO-FIT-5.3-Oefenfotos-GitHub.zip** uit op je computer.
+4. Kies in GitHub Desktop **Repository > Show in Explorer / Finder**. Open die repositorymap.
+5. Kopieer **de inhoud** van de uitgepakte ZIP naar deze repositorymap. Bij bestanden met dezelfde naam kies je vervangen. Zorg dat `index.html`, `jofit-health.js`, `jofit-tech.js`, `jofit-workout-core.js` en `sw.js` direct in de hoofdmap staan en dat `assets` en `icons` hun mapstructuur behouden. Verwijder de verborgen `.git`-map **niet**.
+6. GitHub Desktop toont de wijzigingen. Controleer ze en maak een commit, bijvoorbeeld **JO FIT 5.2 – schema en leefstijl**.
+7. Klik op **Push origin**. GitHub Pages publiceert daarna automatisch op hetzelfde adres: https://owenhulshofoh-create.github.io/JO-FIT/ . Je hoeft Pages niet opnieuw te activeren.
+8. Sluit de geïnstalleerde JO FIT-app of browser volledig en open de site opnieuw. Bij cacheproblemen herlaad de website. De PWA-cacheversie is aangepast.
 
-**Niet verwijderen:** `.github` (bestaande workflows), `assets`, `icons`, `teksten.js`, `manifest.webmanifest`, de overige `.js`-bestanden. Upload nooit een `.env` of geheime sleutel in de openbare repository.
+**Let op:** het oude bestand `vision.js` is uit dit pakket verwijderd omdat Vision niet meer in de interface zit. Laat het desnoods in je repository staan als je de eerste keer alleen bestanden overschrijft; het wordt dan niet meer gebruikt. Voor een echte opruiming kun je het later via GitHub Desktop verwijderen, na het bewaren van je back-up. De overige bronbestanden mag je niet zomaar verwijderen.
 
-## Eerste controle op de website
+## Wat is veranderd?
 
-1. Open op je telefoon de website. Er moeten precies **vijf hoofdonderdelen** zijn: Vandaag, Trainen, Voeding, Voortgang en Meer.
-2. Een gebruiker zonder intake kan de vijf vragenstappen invullen. Controleer op stap 5 het voorstel. Pas na **Accepteer & bewaar nieuw schema** ontstaat een nieuwe schemaversie.
-3. Maak onder Meer een tweede lokaal profiel en test in Trainen → Duo een set met verschillende kilo's. De twee sets moeten in afzonderlijke logboeken terugkomen.
-4. Voer bij Voeding een eigen product per 100 gram in en voeg 50 gram toe. Controleer de berekening.
-5. Maak in Meer een back-up voordat je persoonlijke gegevens van de oude versie importeert of een ander apparaat gaat gebruiken.
+- `Mijn schema`: een verwijderknop direct onder elke oefening, een bevestigingsvraag, tijdelijk **Ongedaan maken** en omhoog/omlaag verplaatsen; historische trainingen worden niet gewijzigd.
+- Powersets per trainingsdag: oefening A, oefening B, daarna instelbare rust (standaard 120 seconden). De basisroutine kan worden voorzien van A/B-indeling zonder je oefeningvolgorde te wijzigen. Je kunt ook gewone sets kiezen.
+- Adviezen bij gewichtsverhoging: +2,5 kg voor vrije gewichten en +5 kg voor apparaten/kabels. Het zijn suggesties, geen verplichte afronding van eerder vastgelegde kilo's; lichaamsgewicht heeft geen automatische extra-kilo's.
+- `Voortgang`: compacte historie. Open een training om de bijbehorende oefeningen te bekijken.
+- `Oefeningen`: waar aanwezig een illustratieve AI-foto, bij andere oefeningen duidelijke houdingsinstructies in plaats van onjuiste poppetjes. Begin-/bewegings-/eindpositie en foutpreventie voor een reeks veelgebruikte oefeningen; de anatomische atlas blijft bewaard.
+- `Meer > Alcohol, drugs & sport`: begrijpelijke informatie over alcohol, cannabis, stimulerende en verdovende middelen en anabole steroïden, met een nuchtere uitleg over spieropbouw, vetverlies en risico's.
+- Vision is uit de zichtbare app en het pakket gehaald; er wordt geen automatische videoanalyse geclaimd.
 
-## Wat moet je extra doen voor gratis online accounts?
+## Controleren na uploaden
 
-De website gebruikt standaard **alleen lokale opslag**. De accountmodule is voorbereid met Supabase Auth + serverafscherming, maar kan niet zelfstandig online gaan: er is een Supabase-project nodig dat jullie beheren.
+1. Controleer of je bestaande trainingsdagen, oefeningen, gewichten en oude opgeslagen trainingen nog aanwezig zijn.
+2. Open **Trainen > Mijn schema**. Controleer de A/B-paren en de rusttijd. Verwijder één oefening, druk op **Ongedaan maken** en controleer dat je trainingshistorie gelijk blijft.
+3. Vink set A af: de rusttimer mag niet beginnen. Vink daarna set B af: de rusttimer begint.
+4. Ga naar **Voortgang** en open een opgeslagen training om de details te bekijken.
+5. Ga naar **Meer > Alcohol, drugs & sport**.
+6. Open een oefening, controleer vijf duidelijke techniekstappen en open desgewenst de spieratlas.
+7. Download een nieuwe back-up.
 
-1. Maak in [Supabase](https://supabase.com/dashboard) een project in een gewenste regio. Free is mogelijk zolang je binnen de voorwaarden en quota blijft.
-2. Open **SQL Editor** en voer `supabase/migrations/202611010001_jofit_accounts.sql` uit. Dit **laat de oudere `forma_user_data`-tabel ongemoeid** en maakt een nieuwe tabel met RLS en versiecontrole.
-3. Ga naar **Authentication → URL Configuration**: voeg de echte GitHub Pages-URL als Site URL en redirect-URL toe. Stel e-mailbevestiging en herstelmail in.
-4. Kopieer de **Project URL** en **Publishable / anon key** naar de openbare instellingen in `jofit-config.js`. De waarde `supabasePublishableKey` mag openbaar zijn; **de service-role key mag nooit in GitHub**. Publiceer de gewijzigde `jofit-config.js` via dezelfde GitHub Desktop-methode.
-5. Test eerst met twee **aparte testaccounts** en twee browsers. Maak een set in account A, log uit, log in op account B en controleer of account B de privégegevens van A niet kan ophalen. Test bovendien foutafhandeling en conflicten als twee apparaten tegelijkertijd schrijven. **Dit live deel is nog niet door ons getest.**
-6. Voor definitieve accountverwijdering deploy je `supabase/functions/delete-account` als Supabase Edge Function en configureer je de servergeheimen in Supabase (niet in GitHub). De app weigert de verwijderactie als deze serverfunctie ontbreekt.
+## Grenzen en opslag
 
-**Automatische cloudsync is nog een configuratie- en proefwerkonderdeel.** Een bestaande lokale browser is geen geschikt veilig meergebruikersapparaat: uitgelogde accountgegevens kunnen technisch nog in de browseropslag aanwezig zijn. Zet vóór openbare introductie een bewaarbeleid en beveiligingsonderzoek op (zie `PRIVACY-EN-OPSLAG.md`).
+Deze versie bevat **geen echte AI-gestuurde camerabeoordeling** en **geen nieuwe AI-animaties**. De door de gebruiker aangeleverde oefenfoto's worden getoond bij 23 passende oefening-ID's; overige oefeningen behouden hun bestaande beeld of tekstuitleg. Het zijn illustraties, geen deskundig gevalideerde demonstraties. De gegeven techniekposities zijn algemene startpunten en kunnen per lichaam en apparaat verschillen. De kennisbank is algemene voorlichting, geen medisch advies.
 
-## Optionele echte AI-chat (betaalde API)
+Een online account/cloudsynchronisatie en een echte AI-chat werken pas na aparte veilige Supabase/serverconfiguratie en live tests; die configuratie wordt niet door dit pakket geactiveerd. Er zijn geen geheime API-sleutels toegevoegd. Er is niets gekocht of zelfstandig gepubliceerd.
 
-- Deploy `supabase/functions/coach-chat` met ingeschakelde JWT-verificatie.
-- Configureer de servergeheimen `OPENAI_API_KEY` en `OPENAI_MODEL` via **Supabase Secrets**. Zet geen enkele geheime sleutel in `jofit-config.js`.
-- Stel voor elke functie `ALLOWED_ORIGIN=https://owenhulshofoh-create.github.io` in. Kies een model na toetsing van actuele beschikbaarheid en prijs.
-- Zet pas ná geslaagde server- en accounttests `aiEnabled: true` in `jofit-config.js`.
-- SQL bevat een maximum van tien AI-verzoeken per ingelogde gebruiker per dag. Aanvragen verbruiken betaalde modeltokens.
+Zie ook `TESTRESULTATEN.md`, `WIJZIGINGEN.md`, `PRIVACY-EN-OPSLAG.md` en `STATUS-EN-VERVOLG.md`.
 
-De **regelgebaseerde** trainingscoach werkt zonder deze dienst. Alle wijzigingen aan schema's vereisen bevestiging.
+## Extra foto-update (JO FIT 5.3)
 
-## Optioneel Open Food Facts-productzoeken
-
-- Deploy `supabase/functions/food-search` met JWT-verificatie en SQL-quota.
-- Stel via Supabase Secrets de omgeving `OFF_USER_AGENT=JO-FIT/5.0 (contact@jouwdomein.nl)` in, maar gebruik een **werkelijk bereikbaar beheer-e-mailadres** en meld de app bij Open Food Facts aan. Gebruik niet letterlijk de voorbeeldwaarde.
-- De zoekfunctie gebruikt tijdelijk de **legacy v1-fulltext-API**, omdat v2/v3 geen gewone volledige-tekstzoekopdrachten bieden. De snelheid is serverbreed beperkt tot 8 verzoeken per minuut en 40 per gebruiker per dag. De API is niet live gevalideerd.
-- Zet pas na testen `foodSearchEnabled: true` in `jofit-config.js`.
-
-## Voor wijzigingen later
-
-Maak wijzigingen in de bestaande GitHub Desktop-kloon, klik **Commit to main → Push origin**. De GitHub Pages-link verandert niet. De **✎ Teksten**-knop bewaart persoonlijke voorkeuren op dat apparaat; algemene standaardteksten staan in `teksten.js` en worden via de repository bijgewerkt. Persoonlijke tekstaanpassingen hebben voorrang op de gepubliceerde standaardtekst.
-
-## Meer informatie
-
-- `WIJZIGINGEN.md` – wat is toegevoegd/veranderd
-- `STATUS-EN-VERVOLG.md` – wat werkt, wat nog configuratie of validatie nodig heeft
-- `TESTRESULTATEN.md` – wat echt is getest en wat niet
-- `PRIVACY-EN-OPSLAG.md` – locatie, toegang en aandachtspunten van gegevens
-- `BRONNEN-EN-LICENTIES.md` – voeding, media en auteursrechten
-
-**Het nieuwe pakket is een geteste eerste ontwikkelfase, niet de afgeronde publieke productieapp.**
+In deze versie zijn de door jou aangeleverde oefenfotos direct gekoppeld aan de juiste oefening-ID. Kopieer het volledige pakket met dezelfde GitHub Desktop-methode als hierboven. Neem `jofit-exercise-images.js` en de volledige map `assets/exercises` mee. Geen bestaand schema, gewicht of logboek is aangepast. Zie `OEFENFOTOS-OVERZICHT.md` voor de controlelijst.

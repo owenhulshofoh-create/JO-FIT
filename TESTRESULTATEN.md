@@ -1,34 +1,27 @@
-# JO FIT 5 — uitgevoerde tests
+# JO FIT 5.3 - Tests en grenzen
 
-Uitgevoerd in de beschikbaar gestelde container op **1 november 2026**. De tests zijn reproduceerbaar via `node --test tests/rules-and-nutrition.test.cjs` en, met Python + Chromium Playwright, `python tests/browser_smoke.py` / `python tests/browser_extended.py`.
+## Gedaan
+- JavaScript-syntax van inline appcode en nieuwe losse modules: `node --check`.
+- 15 automatische Node-tests voor trainingsplanregels, voeding, historie, gewichtsstappen, powerset-rust, techniekcues en de structuur van de informatiepagina: geslaagd.
+- Gesimuleerde gebruikersinteracties in headless Chromium op 320, 375, 768 en 1280 pixels: geen JavaScript-pageerrors of horizontale overflow.
+- Browser: originele schemalijst onthouden, een oefening verwijderen, oude sessie behouden, verwijdering ongedaan maken en dezelfde schemalijst terugkrijgen: geslaagd.
+- Browser: na oefening A geen rust, na oefening B wél rust: geslaagd.
+- Browser: uitklapbaar logboek, techniekkaart met vijf stappen, anatomische atlas en leefstijlpagina geopend: geslaagd.
+- Browser gebruikt een afgeschermde lokale kopie van de website; dit is géén echte live-netwerk- of cloudtest.
 
-## Tests die echt zijn uitgevoerd
+## Niet getest / nog beperkt
+- Geen echte mobiele hardware, camera of iOS Safari-test; screenshots zijn browserweergaven.
+- Geen live GitHub Pages-, Supabase- of AI-provider-integratietests.
+- Geen deskundige biomechanische beeldvalidatie van elk van de 64 oefeningen. De bestaande AI-foto's zijn illustratief, geen 3D-demonstratie.
+- Niet alle eerdere plannings-, account- of cloudfuncties zijn in deze fase integraal opnieuw gevalideerd.
+- Lokale browsertests simuleren bestandsbehoud en opslaggedrag, maar bieden geen garantie bij een verkeerd ingestelde cloudaccount of het wissen van browsergegevens.
 
-| Onderdeel | Methode | Resultaat |
-|---|---|---|
-| 59 catalogus-ID's en materiaalvereisten | 10 Node.js-unitcases, waaronder geen bankdrukken zonder rack en geen cable-pulldown zonder juiste onderdelen | Geslaagd |
-| Bodyweight-only training en afwezigheid van onmogelijk materiaal | Node.js-regeltest | Geslaagd |
-| Voorkeursdagen, vermijden van oefeningen, geen startgewichten verzinnen | Node.js-regeltest | Geslaagd |
-| Calorieën per gram, stuk en milliliter (ook ontbrekende dichtheid of macro's) | Node.js-unitcases | Geslaagd |
-| PR-berekening met exacte versus onzekere herhalingswaarden en verwijderen | Node.js-unitcase | Geslaagd |
-| Intakestappen, hervatten en nieuw schema naast oud schema | Headless Chromium / Playwright met gesimuleerde browseropslag | Geslaagd |
-| Duo: 2 gebruikers, beurtwisseling, individuele gewichten en eigen logboeken | Headless Chromium / Playwright met 2 lokale testprofielen | Geslaagd na reparatie beurtwisselfout |
-| Nieuwe niet-gevalideerde oefening toont geen misleidende animatie | Headless Chromium / Playwright | Geslaagd |
-| Back-upexport van profiel + intake + Vision-notities | Headless Chromium / Playwright met download | Geslaagd |
-| Startscherm, voeding, logboek en accountstatus op 320/375/768/1280 pixels | Headless Chromium / Playwright | Geslaagd, 0 JavaScript-pageerrors en geen horizontale overloop in geteste scenario's |
-| Volledig ZIP-pakket en syntax van JS-bestanden | `zipfile.testzip()`, `node --check` en bestandscontrole | Te verifiëren bij eindpakket (zie console-uitvoer testscript) |
+## Zelf uitvoeren na publicatie
+Volg de controles in `START-HIER.md`. Maak eerst een persoonlijke back-up. Controleer op je eigen telefoon het openen van de schema's, het bewaren van logs en de knop voor het verwijderen van oefeningen.
 
-## Hoe browsertests zijn uitgevoerd
-
-Chromium is gestart zonder echte toegang tot de externe URL. De HTML en lokale JS/CSS zijn in een headless browser geladen, met een **gesimuleerde `localStorage`-interface**. De screenshots komen uit deze browser; afbeeldingen kunnen in de test als data-URL zijn opgenomen. Dit is nuttig voor UI- en logische regressies, maar is **geen echte GitHub Pages-/HTTPS-/serviceworker-/Supabase-integratietest**.
-
-## Nog NIET getest
-
-- Accountaanmelding, RLS-afscherming met echte Supabase-gebruikers, verificatiemails, herstel, verwijdering en conflictgedrag op twee echte telefoons. SQL en Edge Functions zijn voorbereide code, geen gevalideerde cloudproductie.
-- Een AI-oproep met echte externe API-sleutel, budgetlimieten bij serverstoringen of een echte Open Food Facts-productzoekopdracht.
-- De huidige Vision-opname met echte video's, correcte telling, posepunten of techniekinterpretatie; die geautomatiseerde analyse is niet aanwezig.
-- Echte Android-/iOS-apparaten, Safari op iPhone, Firefox, PWA-offline na installatie en serviceworker-update via live HTTPS.
-- Sporttechnische review van alle 59 oefeningen; rechtenonderzoek bij externe media-aanbieders.
-- Pentest, AVG/GDPR-audit, grootschalig gelijktijdig gebruik en herstel na apparaatverlies.
-
-De app mag niet als volledig getest of productieklaar worden gepresenteerd voordat deze punten zijn behandeld.
+## Foto-update 5.3
+- 18 Node-tests geslaagd, inclusief kaartbestanden, materiaalrestricties en de koppeling van unieke oefening-ID's.
+- `node --check` geslaagd voor alle gewijzigde JavaScript-bronnen en inline appscript.
+- In headless Chromium op 375, 768 en 1280 pixels gecontroleerd: zes representatieve afbeeldingskaarten laden, extra variant-ID's, de detailfoto, waarschuwing bij liggende leg raise, de tweede squatfoto en de foto-editor.
+- Beeldvalidatie blijft visueel/handmatig; de bewegingskwaliteit is niet door een trainer of fysiotherapeut beoordeeld. Foto's zijn statisch en geen gecontroleerde animaties.
+- Lokale netwerkpoort was in deze testomgeving geblokkeerd. Daarom is de site voor de browsertest lokaal ingebed met dezelfde bronbestanden en ingesloten beelddata; er is geen live GitHub Pages-test gedaan.

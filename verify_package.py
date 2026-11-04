@@ -1,18 +1,18 @@
+"""Verify current packaged JO FIT 5.2 zip; invocation: python tests/verify_package.py [path-to-zip]."""
 from pathlib import Path
-import zipfile,re,json,subprocess
+import sys,zipfile
 from bs4 import BeautifulSoup
-zip_path=Path(__file__).resolve().parents[2]/'JO-FIT-5.0-Fase1-GitHub.zip'
 root=Path(__file__).resolve().parents[1]
+zip_path=Path(sys.argv[1]).resolve() if len(sys.argv)>1 else root.parent/'JO-FIT-5.2-Powersets-en-Leefstijl-GitHub.zip'
 with zipfile.ZipFile(zip_path) as z:
  assert z.testzip() is None
- names=set(z.namelist());assert 'index.html' in names and 'START-HIER.md' in names
+ names=set(z.namelist());assert {'index.html','START-HIER.md','jofit-tech.js','jofit-health.js','jofit-workout-core.js','sw.js'}<=names
  soup=BeautifulSoup(z.read('index.html'),'html.parser')
- required=[script.get('src').removeprefix('./') for script in soup.find_all('script') if script.get('src')]
- required += [link.get('href').removeprefix('./') for link in soup.find_all('link') if link.get('href') and link.get('href').endswith('.css')]
- assert all(p in names for p in required),[p for p in required if p not in names]
- assert len(soup.select('.navrow button[data-main]'))==5
+ required=[sc['src'].removeprefix('./') for sc in soup.find_all('script',src=True)]
+ required += [li['href'].removeprefix('./') for li in soup.find_all('link',href=True) if li['href'].endswith('.css')]
+ assert all(x in names for x in required),[x for x in required if x not in names]
+ assert len(soup.select('.navrow button[data-main]'))==4
+ assert 'vision.js' not in names
  assert '<title>JO FIT' in z.read('index.html').decode()
- assert z.read('jofit-config.js').decode().count('supabaseUrl: \'\'')==1
- assert '.github/workflows/jofit-tests.yml' in names
- print('ZIP:',zip_path,'files',len(names),'all imports available: YES','zip integrity: OK')
- print('Submenu',[(b['data-main'],b.text.strip())for b in soup.select('.navrow button[data-main]')]);print('File list:\n'+'\n'.join(sorted(names)))
+ assert 'jofit-health.js' in z.read('sw.js').decode()
+ print(f'ZIP OK, files={len(names)}, all JavaScript and CSS imports present, four navigation items, Vision not shipped')

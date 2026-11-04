@@ -2,11 +2,16 @@
    No medical diagnosis, no invented start weights, no AI claims. */
 (function(root,factory){const api=factory();if(typeof module==='object'&&module.exports)module.exports=api;if(root)root.JORULES=api;})(typeof window!=='undefined'?window:null,function(){
 'use strict';
-const EQUIPMENT={dumbbells:'Dumbbells',barbell:'Halterstang',plates:'Halterschijven',bench:'Verstelbare bank',rack:'Squatrek / haltersteunen',cable:'Kabelstation',lat:'Lat-pulldownstation',latbar:'Latstang',row:'Roeimachine',pecdeck:'Pec-deckmachine',legcurl:'Leg-curlmachine',legextension:'Leg-extensionmachine',pullup:'Optrekstang',dipbar:'Diprek',abwheel:'Ab-wheel',bands:'Weerstandsbanden',step:'Stevige verhoging',mat:'Mat',preacher:'Preacherbank',smith:'Smith machine'};
+const EQUIPMENT={dumbbells:'Dumbbells',barbell:'Halterstang',plates:'Halterschijven',bench:'Verstelbare bank',rack:'Squatrek / haltersteunen',cable:'Kabelstation',lat:'Lat-pulldownstation',latbar:'Latstang',row:'Roeimachine',pecdeck:'Pec-deckmachine',legcurl:'Leg-curlmachine',legextension:'Leg-extensionmachine',pullup:'Optrekstang',dipbar:'Diprek',abwheel:'Ab-wheel',bands:'Weerstandsbanden',step:'Stevige verhoging',mat:'Mat',preacher:'Preacherbank',smith:'Smith machine',shoulderpress:'Schouderpressmachine',standcurl:'Staande leg-curlmachine'};
 // Alternative equipment groups: one complete group must be available.
 // Bodyweight/floor needs no extra device. The location name NEVER grants equipment.
 const RAW={
 'incline-press':[['dumbbells','bench'],'pushH','chest'],
+'singlearm-curl':[['dumbbells'],'arms','biceps'],
+'machine-shoulder-press':[['shoulderpress'],'pushV','shoulders'],
+'chest-supported-reverse-fly':[['dumbbells','bench'],'pullH','reardelts'],
+'standing-leg-curl':[['legcurl'],['standcurl'],'hinge','hamstrings'],
+'lying-leg-raise':[[],'core','abs'],
 'crossbody-triceps':[['cable'],'arms','triceps'],
 'shoulder-press':[['dumbbells','bench'],'pushV','shoulders'],
 'triceps-dips':[['dipbar'],'pushH','triceps'],

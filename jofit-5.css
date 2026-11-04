@@ -74,3 +74,72 @@ body[data-jo-main="more"] #view .f3-card:has(#cloudStatus){display:none!importan
 .jo-searchfood{display:flex;justify-content:space-between;gap:5px;background:#29222f;border:1px solid #544353;border-radius:10px;overflow:hidden}.jo-searchfood button{color:#ffeaf0;border:0;background:transparent;padding:10px 13px;cursor:pointer}.jo-searchfood button:first-child{flex:1;text-align:left}.jo-searchfood button:last-child{font-size:22px;color:#ff93a9}.jo-food-recents{display:flex;flex-wrap:wrap;align-items:center;gap:6px}.jo-food-recents button{border:1px solid #554153;background:#302535;color:#fff;border-radius:9px;padding:7px 10px;font-size:12px;cursor:pointer}
 
 body:not([data-jo-tab="schema"]) #f3timer{display:none!important}
+
+/* JO FIT 5.2 - rustiger schema, powersets en compacte techniekkaart */
+@media(max-width:760px){.navrow .tabs{grid-template-columns:repeat(4,minmax(0,1fr))!important}}
+.jo-method{display:flex;gap:13px;align-items:end;flex-wrap:wrap;border:1px solid #584050;background:#211c27;padding:14px 17px;border-radius:17px;margin-bottom:16px}
+.jo-method>div{display:grid;gap:5px;min-width:150px;flex:1 1 185px}.jo-method label{font-size:12px;font-weight:800;color:#f3cfdb}
+.jo-method select{background:#16151c;color:white;border:1px solid #655060;border-radius:10px;padding:12px;min-height:45px;font:inherit}
+.jo-method p{width:100%;margin:2px 0 0;color:#cdbbc5;font-size:12px;line-height:1.5}
+.jo-powerwrap{border:1px solid #634357;border-radius:15px;overflow:hidden;background:linear-gradient(160deg,#251b25,#1b1921);margin:0 0 13px;padding:8px}
+.jo-powerhead{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 11px 11px;flex-wrap:wrap}
+.jo-powerhead strong{color:#ff8ca5;letter-spacing:.07em;font-size:12px}.jo-powerhead span{color:#cbbac4;font-size:11px}
+.jo-powerwrap .exercise{margin-bottom:0}.jo-powerwrap .quick-edit{margin:0 4px 8px}
+.jo-powerrest{border-top:1px solid #533a4b;color:#efb5c3;padding:11px;font-size:12px}
+.jo-training-cols .workouts{min-width:0}
+.jo-tech-upgraded .demo-stage,.jo-tech-upgraded .demo-bottom,.jo-tech-upgraded .scrub-label,.jo-tech-upgraded .motion-legend,.jo-tech-upgraded .demo-note,.jo-tech-upgraded .profile-strip,.jo-tech-upgraded .sequence-card{display:none!important}
+.jo-tech-upgraded .visual-pane{display:block;min-height:auto;background:#1a1822}
+.jo-tech-card{padding:17px;background:linear-gradient(165deg,#29202d,#15191f);border-bottom:1px solid #573c50}
+.jo-tech-image{position:relative;overflow:hidden;border:1px solid #493544;border-radius:14px;background:#0b1017;aspect-ratio:4/3;max-height:365px}
+.jo-tech-image img{width:100%;height:100%;object-fit:cover;display:block}
+.jo-tech-image-badge{position:absolute;top:10px;left:10px;background:#160e19d9;color:#ffc9d3;border:1px solid #a25b70;border-radius:10px;padding:7px 9px;font-size:10px;font-weight:800}
+.jo-tech-image-fallback{display:grid;place-content:center;gap:12px;text-align:center;height:100%;padding:18px;min-height:180px}
+.jo-tech-image-fallback .jo-tech-icon{font-size:38px;color:#ff819a}
+.jo-tech-image-fallback b{font-size:15px;color:#f9e8ed}.jo-tech-image-fallback p{font-size:12px;line-height:1.6;color:#c0b0bd;margin:0}
+.jo-tech-steps{display:grid;gap:9px;margin-top:13px}
+.jo-tech-step{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;align-items:start;border:1px solid #493745;background:#191a23;padding:13px;border-radius:13px}
+.jo-tech-step>span{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:#5e293d;color:#fff;font-size:14px;font-weight:850}
+.jo-tech-step strong{font-size:14px;display:block;color:#fff}.jo-tech-step p{font-size:12px;color:#e3d2dd;line-height:1.65;margin:5px 0 0}
+.jo-tech-caption{font-size:11px;color:#bcabb8;margin:11px 2px 0;line-height:1.5}
+.jo-atlas-collapse{border:1px solid #473646;border-radius:15px;background:#191923;padding:12px;margin:15px 0}
+.jo-atlas-collapse summary{font-size:14px;color:#ffb8c7;font-weight:800;cursor:pointer;padding:8px}
+.jo-atlas-collapse[open] summary{margin-bottom:12px}
+.jo-tech-upgraded .mod-grid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.jo-tech-upgraded .mod-foot{background:#211c25}
+.jo-tech-upgraded .details-pane{padding:14px}
+@media(max-width:820px){.jo-tech-upgraded .mod-grid{grid-template-columns:1fr}.jo-training-cols{grid-template-columns:1fr}.jo-training-aside{display:none}.jo-tech-upgraded .visual-pane{padding:0}.jo-tech-card{padding:12px}.jo-tech-upgraded .details-pane{padding:11px}}
+
+/* 5.2 - zichtbaar schema bewerken; compact logboek; optionele kennisbank */
+.jo-schedule-entry{margin:5px 0;border:1px solid #403443;border-radius:13px;overflow:hidden;background:#1a1b25}
+.jo-schedule-entry .exercise{padding:11px 11px 9px;margin:0}
+.jo-schedule-entry .quick-edit{margin:2px 10px 5px;grid-template-columns:repeat(4,minmax(0,1fr))}
+.jo-row-actions{display:flex;align-items:center;justify-content:flex-end;gap:7px;flex-wrap:wrap;margin:0 10px 12px}
+.jo-row-actions button{border:1px solid #4d4353;background:#24212c;color:#cfbfcc;border-radius:9px;padding:7px 10px;font-size:11px;min-height:36px}
+.jo-row-actions .jo-remove-exercise{margin-left:auto;border-color:#915368;background:#452431;color:#ffd2dc;font-weight:800}
+.jo-row-actions button:hover{filter:brightness(1.16)}
+.jo-row-actions button:disabled{opacity:.25}
+.jo-undo-remove{background:#27362c;border:1px solid #698d74;color:#ceffdf;cursor:pointer;margin:12px 15px;padding:11px 14px;border-radius:10px;font-size:13px;font-weight:760}
+.jo-powerwrap .jo-schedule-entry{margin-bottom:8px}.jo-powerwrap .jo-row-actions{margin-bottom:8px}
+.jo-log-row{display:flex;align-items:start;gap:8px;border-bottom:1px solid #3c3441;padding:6px 12px}
+.jo-log-details{min-width:0;flex:1}.jo-log-details summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 0;color:#f6ecf0}
+.jo-log-details summary::-webkit-details-marker{display:none}
+.jo-log-details summary:before{content:'▸';color:#ff9dae;font-size:11px;margin-right:5px}
+.jo-log-details[open] summary:before{content:'▾'}
+.jo-log-title{flex:1;min-width:0;font-size:13px;font-weight:800}
+.jo-log-title small{display:block;color:#b8aab9;font-size:11px;font-weight:400;margin-top:4px}
+.jo-log-count{white-space:nowrap;color:#fbb5c5;background:#382632;border-radius:9px;padding:6px;font-size:11px}
+.jo-log-row .log-entries{padding:3px 10px 15px 21px;margin:0;display:grid;gap:6px;color:#d4c7d0;font-size:12px}
+.jo-log-delete{border:1px solid #614352;background:#382731;color:#ffc7d0;border-radius:9px;padding:8px 10px;margin-top:11px;min-height:34px;cursor:pointer}
+.jo-extra-instructions{border:1px solid #44394b;border-radius:13px;padding:13px;background:#201c27;margin:8px 0}.jo-extra-instructions summary{cursor:pointer;color:#ffc7d4;font-weight:750;font-size:13px}
+.jo-extra-instructions ol{margin-top:12px}
+.jo-health-head{padding:8px 0 14px}.jo-health-head h2{font-size:clamp(25px,3vw,36px);margin:9px 0}.jo-health-head p{color:#d0c4d1;line-height:1.7;max-width:720px}
+.jo-health-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:15px 0 23px}
+.jo-health-summary>div{border:1px solid #564254;background:linear-gradient(150deg,#302230,#1c1c26);padding:18px;border-radius:16px}
+.jo-health-summary strong{font-size:15px;color:#ffb9cb}.jo-health-summary p{color:#d6c7d3;font-size:12px;line-height:1.7;margin:9px 0 0}
+.jo-health-list{display:grid;gap:11px}.jo-health-topic{border:1px solid #504052;border-radius:15px;background:#1c1d27;overflow:hidden}
+.jo-health-topic summary{list-style:none;display:grid;grid-template-columns:minmax(0,1fr) 22px;align-items:center;padding:16px 18px;cursor:pointer;gap:5px 12px}
+.jo-health-topic summary::-webkit-details-marker{display:none}.jo-health-topic-title{color:#fff;font-weight:830;font-size:16px}.jo-health-topic-sub{grid-row:2;grid-column:1;color:#cbbcc9;line-height:1.6;font-size:12px}.jo-health-chevron{grid-column:2;grid-row:1/3;color:#ff9fb3;font-size:24px}
+.jo-health-topic[open] .jo-health-chevron{transform:rotate(180deg)}.jo-health-topic-content{border-top:1px solid #443b48;padding:9px 18px 18px;display:grid;gap:11px}
+.jo-health-topic-content h3{font-size:14px;color:#ffd1d8;margin:7px 0}.jo-health-topic-content p{margin:0;color:#dbd1dc;font-size:13px;line-height:1.7}
+.jo-health-end{margin:24px 0;padding:19px;border:1px solid #614956;border-radius:15px;background:#281e2a}.jo-health-end h3{color:#fff;margin:0 0 10px}.jo-health-end p{color:#dbcdd6;font-size:13px;line-height:1.7}
+@media(max-width:760px){.jo-health-summary{grid-template-columns:1fr}.jo-schedule-entry .quick-edit{grid-template-columns:repeat(2,minmax(0,1fr))}.jo-row-actions{justify-content:stretch}.jo-row-actions button{flex:1}.jo-row-actions .jo-remove-exercise{margin-left:0}}

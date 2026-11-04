@@ -1,35 +1,28 @@
-# Wijzigingen ten opzichte van de aangeleverde JO FIT 4.0
+# Wijzigingen in JO FIT 5.2
 
-## Ontwerp
-- Vijf hoofdonderdelen: Vandaag, Trainen, Voeding, Voortgang, Meer. Subfuncties via tweede navigatierij in plaats van eigen hoofdtab.
-- Donkere JO FIT-huisstijl met rood-roze accent behouden; nieuw dashboard met volgende training, weekoverzicht en korte acties.
-- Mobiel menu onderaan vast; desktop- en tabletlayout aangepast. Voormalige dubbele promotiebanners uitgeschakeld.
-- In de standaardteksten: JO FIT, "Jouw fitness app", "Naar een idee van Owen en Jonathan"; de ongewenste Forma-slogan is verwijderd.
+## Schema en opslag
+- `index.html`: nieuwe direct zichtbare knoppen voor **Verwijderen**, **Omhoog** en **Omlaag** bij elke oefening in `Mijn schema`, plus bevestiging en **Laatste verwijdering ongedaan maken**.
+- Verwijderen verandert uitsluitend `routines[actieveRoutine].schedule[dag]`; **`sessions` wordt niet verwijderd of bijgewerkt**.
+- Bestaande profielen, schema-IDs, sessie-IDs, lokale sleutel `forma_v2_profiles`, en de gescheiden logs blijven in gebruik.
+- Herstelfout bij standaardroutine hersteld; initieel schema kan incomplete dagen bevatten en wordt daar veilig op gecontroleerd.
+- Gewone sets en powersets blijven per trainingsdag instelbaar. Bij powersets volgt rust ná A en B. Gewichtsstappen +2,5/+5 kg; lichaamsgewicht zonder voorgestelde kilo-verhoging.
+- `Voortgang` toont compacte, uitklapbare trainingsgeschiedenis.
 
-## Training en intake
-- Intake opnieuw gebouwd in vijf onderbreekbare stappen (doel, ervaring, dagen, ruimte, exacte materialen, opties en samenvatting).
-- Schema-engine in `jofit-rules.js` met expliciete materiaalvereisten per oefening, 1-6 trainingsdagen, tijdlimiet, vermeden oefeningen, spierfocus en **geen verzonnen startgewicht**.
-- Trainingsplan wordt een nieuwe routine naast bestaande routines: oude versies blijven in de routinekiezer.
-- Oefencatalogus uitgebreid van 44 naar **59** stabiele oefening-ID's. De 15 nieuwe oefeningen hebben geschreven stappen en worden **niet** als gevalideerde animaties gepresenteerd.
-- Coach heeft een nieuwe korte gebruiksinterface: vooraf bekijken, goedkeuren, alternatief bewaren. Oude gedetailleerde krachtanalyses blijven via de knop op de coachpagina bereikbaar.
+## Uitleg en leefstijl
+- `jofit-tech.js`: nieuwe gedetailleerde techniekcues voor veelgebruikte oefeningen (bankhoek, houding, elleboogrichting, controle); overige oefeningen blijven gebruikmaken van de bestaande tekst met expliciete beperkingen.
+- Illustratieve oefenfoto's blijven los van instructies; onjuiste generieke animaties worden niet getoond. De bestaande anatomische atlas blijft onder een uitklapbaar deel.
+- `jofit-health.js`: informatiepagina onder **Meer > Alcohol, drugs & sport**. Geen gebruiksregistratie of nieuwe persoonsgegevens.
+- `vision.js` verwijderd uit distributie, schermen en service-worker-cachelijst. Optionele oude Vision-notities zijn niet verwijderd uit eerdere lokale data of back-ups.
+- `sw.js`: nieuwe cacheversie met de nieuwe modules.
 
-## Duo, logboek en back-up
-- Lokale Duo-sessie: expliciete toestemming, shared volgorde, beurtwisseling, afzonderlijke setregistratie met eigen kg/reps/RPE. Geen synchronisatie tussen twee apparaten.
-- Voortgangspagina uitgebreid met selecteerbare 4/8/12 weken, uit werksets herberekende PR-indicatoren en een verwijderactie voor onjuiste registraties.
-- Nieuwe back-up bevat één persoonlijk profiel plus intake en Vision-notities; importeert als een apart lokaal profiel in plaats van andere gegevens te overschrijven.
-- Bewerkbare foto-overrides en de oorspronkelijke anatomische atlas blijven beschikbaar. Oude beelden zijn niet medisch gevalideerd.
+## Niet uitgevoerd
+- Geen geverifieerde nieuwe MP4/WebM-animaties, geen volledige 59-foto-bibliotheek.
+- Geen nieuwe cloud- of AI-serverimplementatie; bestaande optionele modules zijn ongewijzigd.
+- Geen live GitHub-publicatie, aankopen of tests op echte iPhones/Android-toestellen.
 
-## Voeding
-- Nieuw dagboek met werkelijk gekozen gram/stuk/ml, eigen etiketwaarden per 100 g of 100 ml, rauw/bereid-vermelding, favorieten, recente producten en handmatige stappen.
-- Ontbrekende waarden blijven `null`/onbekend; milliliters worden niet zonder bekende dichtheid naar gram omgerekend; stuks vereisen een echt stuksgewicht.
-- Voorbereide beveiligde serverzoekfunctie voor Open Food Facts. **Niet actief zonder configuratie.** Geen volledige NEVO-, Portie-online- of Voedingscentrum-database overgenomen.
-
-## Accounts en AI (nog te configureren)
-- Nieuwe optionele Supabase Auth-client, RLS-migratie `jofit_user_state`, eenvoudige conflictcontrole met versienummers en Edge Functions voor AI, OFF-zoeken en accountverwijdering.
-- Cloud en echte AI kunnen **niet op basis van deze GitHub ZIP alleen werken**: Supabase-project, sleutelconfiguratie, Edge Functions en echte tests zijn noodzakelijk.
-- De eerdere experimentele cloudfuncties in de Vrienden-module zijn visueel verborgen om verwarring met de nieuwe accountpagina te voorkomen; onderliggende code is voorlopig niet verwijderd.
-
-## Niet gewijzigd of gevalideerd
-- Bestaande SVG/2D-animaties en medische atlas zijn niet vervangen door nieuwe 3D-video's. De videokwaliteit en het anatomisch detail zijn nog niet onafhankelijk gecontroleerd.
-- Vision is nog zelf video terugkijken en notities maken. Echte geautomatiseerde camerabeoordeling ontbreekt.
-- Zes eerdere AI-oefenfoto's blijven; er zijn niet plotseling 59 gevalideerde oefenfoto's.
+## JO FIT 5.3 - Oefenfotos
+- 24 verschillende gebruikersfotos gekoppeld: 23 oefening-ID's inclusief twee squatposities.
+- 5 echte oefeningvarianten apart opgenomen in de bibliotheek, met stappen en materiaalchecks.
+- Bestaande lokale foto-overschrijvingen en profielen blijven voorrang houden.
+- Foutieve variantequivalentie vermeden; bronfoto's blijven illustratief en zijn niet klinisch gevalideerd.
+- Nieuwe JS/JSON fotokoppeling: jofit-exercise-images.js / jofit-exercise-images.json.
